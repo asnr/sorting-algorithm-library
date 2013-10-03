@@ -1,0 +1,45 @@
+Library of sort functions together with a stub to test them against the STL sort
+function. To build testing stub, run make:
+
+$ make
+
+Testing stub sorts arrays in file 'in' located in the same directory. Call
+testing stub with the command:
+
+$ ./sort_tester [merge|insertion|quick|heap|binaryTree]
+
+For example,
+
+$ ./sort_tester binaryTree
+
+
+** Format of 'in' file ** 
+
+The first line of 'in' should be the number n of arrays it contains, followed by
+n pairs of lines. The first of each pair is a single number k_i and the second
+is a sequence of k_i space-separated integers.
+
+For example:
+
+2
+2
+1 2
+4
+2 1 906 -1
+
+
+** Library contents ** 
+
+sort_lib.h:
+ - insertionSort: O(n^2)
+ - mergeSort: O(nlog n)
+ - quickSort: naive, always partition around last element in array. Worst case
+     time complexity O(n^2), expected time complexity O(nlog n) assuming each 
+     permutation has probability 1/n! of appearing.
+
+heap_sort.h:
+ - heapSort: O(nlog n)
+
+binary_tree_sort.h:
+ - binaryTreeSort: essentially naive quicksort with the underlying binary tree
+     structure made explicit. Worst case O(n^2), expected case O(nlog n).
