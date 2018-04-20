@@ -70,17 +70,6 @@ void mSort(int a[], int temp[], int size)
   }
 }
 
-void quickSort(int a[], int size)
-{
-  int pivotIdx;
-
-  if (size > 1) {
-    pivotIdx = partition(a, size);
-    quickSort(a, pivotIdx);
-    quickSort(a + pivotIdx + 1, size - pivotIdx - 1);
-  } 
-}
-
 // Here we partition around the last elt., ie. a[size - 1]
 int partition(int a[], int size)
 {
@@ -98,10 +87,21 @@ int partition(int a[], int size)
       leftIdx++;
     }
   }
-  
+
   // Swap a[leftIdx] and a[size - 1]
   a[size - 1] = a[leftIdx];
   a[leftIdx]  = pivot;
 
   return leftIdx;
+}
+
+void quickSort(int a[], int size)
+{
+  int pivotIdx;
+
+  if (size > 1) {
+    pivotIdx = partition(a, size);
+    quickSort(a, pivotIdx);
+    quickSort(a + pivotIdx + 1, size - pivotIdx - 1);
+  }
 }
