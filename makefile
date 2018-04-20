@@ -13,3 +13,6 @@ heap_sort.o : heap_sort.c
 
 binary_tree_sort.o : binary_tree_sort.c
 	gcc -c binary_tree_sort.c
+
+clean :
+	rm -f sort_tester *.o
