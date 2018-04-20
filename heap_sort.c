@@ -1,10 +1,11 @@
 // Both assume that the topmost elt of the binary tree
 // has index 0.
-inline int left(int i)
+int left(int i)
 {
   return(2*i+1);
 }
-inline int right(int i)
+
+int right(int i)
 {
   return(2*i+2);
 }
