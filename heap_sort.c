@@ -32,7 +32,7 @@ void maxHeapify(int a[], int start, int size)
       start = max;
       l = left(max);
       r = right(max);
-    } else // our tree is already a max-heap. 
+    } else // our tree is already a max-heap.
       l = size;
 
   } // end while
@@ -43,7 +43,7 @@ void buildMaxHeap(int a[], int size)
   int i;
 
   if (size > 1)
-    // the last node (ie. not a leaf) has index (size/2)-1. 
+    // the last node (ie. not a leaf) has index (size/2)-1.
     for (i = (size/2) - 1; i >= 0; i--)
       maxHeapify(a, i, size);
 }
@@ -62,7 +62,7 @@ void heapSort(int a[], int size)
   }
 }
 
-// Recursive implementation. Marvel at its ugliness. 
+// Recursive implementation. Marvel at its ugliness.
 void maxHeapifyRec(int a[], int start, int size)
 {
   int l, r, max, temp;
@@ -83,6 +83,6 @@ void maxHeapifyRec(int a[], int start, int size)
       a[start] = a[max];
       a[max] = temp;
       maxHeapifyRec(a, max, size);
-    } // if max == start, then our tree is already a max-heap.  
+    } // if max == start, then our tree is already a max-heap.
   }// end if
 }

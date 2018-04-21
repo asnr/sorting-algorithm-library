@@ -24,7 +24,7 @@ void insertionSort(int a[], int size)
 
     a[j+1] = temp;
   }
-      
+
 }
 
 void mergeSort(int a[], int size)
@@ -42,11 +42,11 @@ void mSort(int a[], int temp[], int size)
 
   if (size > 1) {
     sizeFirstHalf = size/2;
-    
+
     // sort both halves
     mSort(a, temp, size/2);
     mSort(&a[sizeFirstHalf], temp, size - size/2);
-    
+
     // merge the sorted halves
     i = 0; j = sizeFirstHalf;
     for (k = 0; k < size; k++) {

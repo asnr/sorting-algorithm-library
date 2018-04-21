@@ -50,13 +50,13 @@ void toArray(struct BinTree *tree, int a[], int* size)
     a[(*size)] = tree->data;
     (*size)++;
     toArray(tree->right, a, size);
-  } 
+  }
 }
 
 void binaryTreeSort(int a[], int size)
 {
   struct BinTree *tree = makeTree(a, size);
-  
+
   size = 0;
   toArray(tree, a, &size);
 }
@@ -106,7 +106,7 @@ void elaboratePrintTree(const struct BinTree* tree)
 {
   int depth, border, i, j;
   const struct BinTree **level;
-  
+
   depth = treeDepth(tree);
   level = malloc( 2^depth * sizeof(*level) );
   if (level == NULL) {
@@ -130,7 +130,7 @@ void elaboratePrintTree(const struct BinTree* tree)
     // print left border
     border = ((1<<(depth-i))>>1) - 1;
     printRepeatChar(border, ' ');
-    
+
     // print nodes of level i
     printTreeNode(level[0]);
     for (j = 1; j < 1<<i; j++) {

@@ -1,12 +1,12 @@
 /*
 
   Test bed for sort functions.
-  
+
   Takes one argument, which determines which sort function will be tested.
 
   Input is the file "in" of sequences of integers. (See below for format of
   input file.)
-  
+
   Correctness of library sort functions is tested by comparing with the standard
   template sort function. Output is to the console; no output => sort function
   agrees with STL sort function.
@@ -48,9 +48,9 @@ int main ( int argc, char *argv[] )
 {
   int i, j, size, numArrays;
   int a[MAX_SIZE], b[MAX_SIZE];
-  
+
   void (*sortFunction)(int*, int);
-  
+
   // Select the sort function that will be tested
   if (argc <= 1)
     sortFunction = &mergeSort;
@@ -66,7 +66,6 @@ int main ( int argc, char *argv[] )
     sortFunction = &binaryTreeSort;
   else
     sortFunction = &mergeSort;
-    
 
   /* Input is a sequence of integer arrays. The first line of "in" should be
   the number n of arrays it contains, followed by n pairs of lines. The first
@@ -94,9 +93,9 @@ int main ( int argc, char *argv[] )
       printArray(b,size);
     }
   }
-    
+
   fclose(input);
-  return 0; 
+  return 0;
 }
 
 void printArray(int a[], int size)
