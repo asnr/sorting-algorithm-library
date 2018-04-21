@@ -52,7 +52,7 @@ int main ( int argc, char *argv[] )
   void (*sortFunction)(int*, int);
   
   // Select the sort function that will be tested
-  if (argc < 1)
+  if (argc <= 1)
     sortFunction = &mergeSort;
   else if (!strcmp(argv[1], mergeSortOption))
     sortFunction = &mergeSort;
