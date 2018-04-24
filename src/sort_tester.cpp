@@ -29,12 +29,14 @@ extern "C"{
 // Maximum size of the array to be sorted
 const int MAX_SIZE = 1000;
 
-char mergeSortOption[]     = "merge"; // Default option
+char mergeSortOption[]     = "merge";
 char insertionSortOption[] = "insertion";
 char quickSortOption[]     = "quick";
 char heapSortOption[]      = "heap";
 char binaryTreeOption[]    = "binaryTree";
 char redBlackTreeOption[]  = "redBlackTree";
+
+void usage();
 
 // Prints array a to standard out.
 void printArray(int a[], int size);
@@ -54,8 +56,8 @@ int main ( int argc, char *argv[] )
   void (*sortFunction)(int*, int);
 
   // Select the sort function that will be tested
-  if (argc <= 1)
-    sortFunction = &mergeSort;
+  if (argc != 2)
+    usage();
   else if (!strcmp(argv[1], mergeSortOption))
     sortFunction = &mergeSort;
   else if (!strcmp(argv[1], insertionSortOption))
@@ -69,7 +71,7 @@ int main ( int argc, char *argv[] )
   else if (!strcmp(argv[1], redBlackTreeOption))
     sortFunction = &redBlackTreeSort;
   else
-    sortFunction = &mergeSort;
+    usage();
 
   /* Input is a sequence of integer arrays. The first line of "in" should be
   the number n of arrays it contains, followed by n pairs of lines. The first
@@ -102,6 +104,11 @@ int main ( int argc, char *argv[] )
   return 0;
 }
 
+void usage()
+{
+  printf("Usage: sort_tester merge|insertion|quick|heap|binaryTree|redBlackTree\n");
+  exit(1);
+}
 void printArray(int a[], int size)
 {
   int i;
