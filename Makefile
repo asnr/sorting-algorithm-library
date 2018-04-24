@@ -1,4 +1,3 @@
-
 bin/sort_tester : obj/sort_tester.o obj/sort_lib.o obj/heap_sort.o obj/binary_tree_sort.o obj/red_black_tree_sort.o
 	g++ -o bin/sort_tester obj/sort_tester.o obj/sort_lib.o obj/heap_sort.o obj/binary_tree_sort.o obj/red_black_tree_sort.o
 
