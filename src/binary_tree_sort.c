@@ -43,7 +43,7 @@ struct BinTree* makeTree(int contents[], int size)
 }
 
 // Flattens the binary tree. Recursive implementation
-void toArray(struct BinTree *tree, int a[], int* size)
+static void toArray(struct BinTree *tree, int a[], int* size)
 {
   if (tree != NULL) {
     toArray(tree->left, a, size);

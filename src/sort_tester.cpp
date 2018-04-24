@@ -23,6 +23,7 @@ extern "C"{
 #include "heap_sort.h"
 #include "sort_lib.h"
 #include "binary_tree_sort.h"
+#include "red_black_tree_sort.h"
 }
 
 // Maximum size of the array to be sorted
@@ -33,6 +34,7 @@ char insertionSortOption[] = "insertion";
 char quickSortOption[]     = "quick";
 char heapSortOption[]      = "heap";
 char binaryTreeOption[]    = "binaryTree";
+char redBlackTreeOption[]  = "redBlackTree";
 
 // Prints array a to standard out.
 void printArray(int a[], int size);
@@ -64,6 +66,8 @@ int main ( int argc, char *argv[] )
     sortFunction = &heapSort;
   else if (!strcmp(argv[1], heapSortOption))
     sortFunction = &binaryTreeSort;
+  else if (!strcmp(argv[1], redBlackTreeOption))
+    sortFunction = &redBlackTreeSort;
   else
     sortFunction = &mergeSort;
 
