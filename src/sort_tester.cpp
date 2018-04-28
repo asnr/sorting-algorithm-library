@@ -36,7 +36,11 @@ char heapSortOption[]      = "heap";
 char binaryTreeOption[]    = "binaryTree";
 char redBlackTreeOption[]  = "redBlackTree";
 
-void usage();
+void usage()
+{
+  printf("Usage: sort_tester merge|insertion|quick|heap|binaryTree|redBlackTree input_file\n");
+  exit(1);
+}
 
 // Prints array a to standard out.
 void printArray(int a[], int size);
@@ -47,28 +51,29 @@ void printArray(int a[], int size);
 bool check(int a[], int b[], int size);
 
 
-// Takes one argument, which selects which sorting algorithm will be tested.
-int main ( int argc, char *argv[] )
+int main(int argc, char *argv[])
 {
   int i, j, size, numArrays;
   int a[MAX_SIZE], b[MAX_SIZE];
 
   void (*sortFunction)(int*, int);
 
-  // Select the sort function that will be tested
-  if (argc != 2)
-    usage();
-  else if (!strcmp(argv[1], mergeSortOption))
+  if (argc != 3) usage();
+
+  char *algorithm = argv[1];
+  char *inputFile = argv[2];
+
+  if (!strcmp(algorithm, mergeSortOption))
     sortFunction = &mergeSort;
-  else if (!strcmp(argv[1], insertionSortOption))
+  else if (!strcmp(algorithm, insertionSortOption))
     sortFunction = &insertionSort;
-  else if (!strcmp(argv[1], quickSortOption))
+  else if (!strcmp(algorithm, quickSortOption))
     sortFunction = &quickSort;
-  else if (!strcmp(argv[1], heapSortOption))
+  else if (!strcmp(algorithm, heapSortOption))
     sortFunction = &heapSort;
-  else if (!strcmp(argv[1], heapSortOption))
+  else if (!strcmp(algorithm, heapSortOption))
     sortFunction = &binaryTreeSort;
-  else if (!strcmp(argv[1], redBlackTreeOption))
+  else if (!strcmp(algorithm, redBlackTreeOption))
     sortFunction = &redBlackTreeSort;
   else
     usage();
@@ -77,7 +82,7 @@ int main ( int argc, char *argv[] )
   the number n of arrays it contains, followed by n pairs of lines. The first
   of each pair is a single number k_i and the second is a sequence of k_i
   space-separated integers. */
-  FILE *input = fopen("in", "r");
+  FILE *input = fopen(inputFile, "r");
 
   fscanf(input, "%d", &numArrays);
 
@@ -104,11 +109,6 @@ int main ( int argc, char *argv[] )
   return 0;
 }
 
-void usage()
-{
-  printf("Usage: sort_tester merge|insertion|quick|heap|binaryTree|redBlackTree\n");
-  exit(1);
-}
 void printArray(int a[], int size)
 {
   int i;
